@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "欢迎.md",
+                "file": "daily-works 演示.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "欢迎"
+              "title": "daily-works 演示"
             }
           },
           {
@@ -27,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2025-07-30.md",
+                "file": "Works/Job/项目2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-30"
+              "title": "项目2"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,11 +195,15 @@
       "zk-prefixer:创建时间戳笔记": false
     }
   },
-  "active": "fecd9673d919e0c2",
+  "active": "a55e3f629f7806eb",
   "lastOpenFiles": [
+    "Works/Job/项目2.md",
+    "Works/Job/项目1.md",
+    "daily-works 演示.md",
     "Dev Guide.md",
-    "2025-07-30.md",
-    "未命名.md",
-    "欢迎.md"
+    "Works/Job/2025-07-30.md",
+    "Works/Job",
+    "Works",
+    "未命名.md"
   ]
 }
