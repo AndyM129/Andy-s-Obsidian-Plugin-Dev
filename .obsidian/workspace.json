@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "290620ef18ab9562",
@@ -185,24 +185,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": true,
-      "graph:查看关系图谱": true,
-      "canvas:新建白板": true,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "sample-plugin:Sample Plugin": false,
-      "sample-plugin:Sample Plugin 11": false,
-      "zk-prefixer:创建时间戳笔记": false
+      "zk-prefixer:创建时间戳笔记": false,
+      "sample-plugin:Sample Plugin": false
     }
   },
   "active": "fecd9673d919e0c2",
   "lastOpenFiles": [
-    "欢迎.md",
-    "Dev Guide.md"
+    "未命名.md",
+    "Dev Guide.md",
+    "欢迎.md"
   ]
 }
