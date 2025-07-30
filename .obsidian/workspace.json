@@ -27,26 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dev Guide.md",
+                "file": "2025-07-30.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dev Guide"
-            }
-          },
-          {
-            "id": "6966e606f99e630f",
-            "type": "leaf",
-            "state": {
-              "type": "example-view",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Example view"
+              "title": "2025-07-30"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -203,15 +193,14 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "zk-prefixer:创建时间戳笔记": false,
-      "sample-plugin:Sample Plugin": false,
-      "sample-plugin:Example View": false
+      "zk-prefixer:创建时间戳笔记": false
     }
   },
-  "active": "6966e606f99e630f",
+  "active": "fecd9673d919e0c2",
   "lastOpenFiles": [
-    "未命名.md",
     "Dev Guide.md",
+    "2025-07-30.md",
+    "未命名.md",
     "欢迎.md"
   ]
 }
