@@ -34,9 +34,19 @@
               "icon": "lucide-file",
               "title": "Dev Guide"
             }
+          },
+          {
+            "id": "6966e606f99e630f",
+            "type": "leaf",
+            "state": {
+              "type": "example-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Example view"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -194,10 +204,11 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "zk-prefixer:创建时间戳笔记": false,
-      "sample-plugin:Sample Plugin": false
+      "sample-plugin:Sample Plugin": false,
+      "sample-plugin:Example View": false
     }
   },
-  "active": "fecd9673d919e0c2",
+  "active": "6966e606f99e630f",
   "lastOpenFiles": [
     "未命名.md",
     "Dev Guide.md",

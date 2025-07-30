@@ -5,9 +5,12 @@ import {
 	Modal,
 	Notice,
 	Plugin,
+	WorkspaceLeaf,
 	PluginSettingTab,
 	Setting,
 } from "obsidian";
+
+import { ExampleView, VIEW_TYPE_EXAMPLE } from "./view/ExampleView";
 
 // Remember to rename these classes and interfaces!
 
@@ -92,9 +95,42 @@ export default class MyPlugin extends Plugin {
 		this.registerInterval(
 			window.setInterval(() => console.log("setInterval"), 5 * 60 * 1000)
 		);
+
+		// This creates an icon in the left ribbon.
+		const exampleViewIconEl = this.addRibbonIcon(
+			"dice",
+			"Example View",
+			(evt: MouseEvent) => {
+				// Called when the user clicks the icon.
+				this.activateView();
+			}
+		);
+		// Perform additional things with the ribbon
+		exampleViewIconEl.addClass("my-plugin-ribbon-class");
+
+		this.registerView(VIEW_TYPE_EXAMPLE, (leaf) => new ExampleView(leaf));
 	}
 
 	onunload() {}
+
+	async activateView() {
+		const { workspace } = this.app;
+
+		let leaf: WorkspaceLeaf | null = null;
+		const leaves = workspace.getLeavesOfType(VIEW_TYPE_EXAMPLE);
+
+		if (leaves.length > 0) {
+			// A leaf with our view already exists, use that
+			leaf = leaves[0];
+			workspace.revealLeaf(leaf);
+		} else {
+			// Our view could not be found in the workspace, create a new leaf in the right sidebar for it
+			leaf = workspace.getLeaf(true);
+			leaf.setViewState({ type: VIEW_TYPE_EXAMPLE, active: true }).then(
+				() => leaf && workspace.revealLeaf(leaf)
+			);
+		}
+	}
 
 	async loadSettings() {
 		this.settings = Object.assign(
