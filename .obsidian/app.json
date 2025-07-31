@@ -1,5 +1,7 @@
 {
   "readableLineLength": false,
-  "strictLineBreaks": true,
-  "spellcheck": false
+  "strictLineBreaks": false,
+  "spellcheck": false,
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true
 }
