@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "daily-works 演示.md",
-                "mode": "preview",
-                "source": false
+                "mode": "source",
+                "source": true
               },
               "icon": "lucide-file",
               "title": "daily-works 演示"
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Works/Job/项目3.md",
+                "file": "Works/Job/202507311201.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "项目3"
+              "title": "202507311201"
             }
           }
         ]
@@ -190,15 +190,17 @@
   "left-ribbon": {
     "hiddenItems": {
       "daily-notes:打开/创建今天的日记": false,
+      "zk-prefixer:创建时间戳笔记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "zk-prefixer:创建时间戳笔记": false
+      "command-palette:打开命令面板": false
     }
   },
   "active": "f27cd43d5c523959",
   "lastOpenFiles": [
+    "Works/Job/202507311201.md",
     "Works/Job/项目3.md",
     "daily-works 演示.md",
+    "Works/Job/202507311146.md",
     "Works/Job/项目2.md",
     "2025-07-31.md",
     "Dev Guide.md",
