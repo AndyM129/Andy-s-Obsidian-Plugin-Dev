@@ -72,7 +72,9 @@ export default class DailyWorksPlugin extends Plugin {
 		// 构造最终渲染文本
 		let output = "";
 
-		for (const section of allSections) {
+		// 修改为带索引的循环，以便判断是否为最后一个元素
+		for (let i = 0; i < allSections.length; i++) {
+			const section = allSections[i];
 			const lines = section.text.split("\n");
 			const headingLine = lines[0];
 			const restLines = lines.slice(1).join("\n");
@@ -103,8 +105,9 @@ export default class DailyWorksPlugin extends Plugin {
 			// 6️⃣ 构造链接 markdown
 			const internalLink = `[[${fileName}#${originalHeadingText}|${displayTitle}]]`;
 
-			// 7️⃣ 拼接一级标题和正文
-			output += `# ${internalLink}\n\n${restLines}\n\n---\n\n`;
+			// 7️⃣ 拼接一级标题和正文，最后一个section不添加分隔线
+			const isLastSection = i === allSections.length - 1;
+			output += `# ${internalLink}\n\n${restLines}\n\n${isLastSection ? '' : '---\n\n'}`;
 		}
 
 		// 使用 Obsidian 内部 markdown 渲染器渲染

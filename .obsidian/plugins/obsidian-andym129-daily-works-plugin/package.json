@@ -1,11 +1,12 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-andym129-daily-works-plugin",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "从指定目录下的笔记中 查找指定日期的内容 并进行显示",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+  		"copy": "PLUGIN_NAME=$(basename \"$PWD\") && mkdir -p \"$PLUGIN_NAME\" && cp manifest.json main.js styles.css \"$PLUGIN_NAME\"/",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],

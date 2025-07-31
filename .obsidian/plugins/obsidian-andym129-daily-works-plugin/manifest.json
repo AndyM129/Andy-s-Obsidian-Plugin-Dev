@@ -1,6 +1,6 @@
 {
-	"id": "andy-daily-works-plugin",
-	"name": "Andy's Daily Works",
+	"id": "obsidian-andym129-daily-works-plugin",
+	"name": "Andy's Obsidian Daily Works",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "从指定目录下的笔记中 查找指定日期的内容 并进行显示",

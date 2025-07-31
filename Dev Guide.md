@@ -74,3 +74,69 @@ git clone https://github.com/pjeby/hot-reload.git
 ```
 
 然后启用插件，就可以在 `npm run dev` 执行状态下，修改插件源码后，Obsidian 会自动更新
+
+# 6、打包发布
+
+先更新 package.json 文件，示例如下：
+```json
+{
+	"name": "obsidian-andym129-daily-works-plugin", // 修改这个
+	"version": "1.0.0", // 修改这个
+	"description": "从指定目录下的笔记中 查找指定日期的内容 并进行显示", // 修改这个
+	"main": "main.js",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"copy": "PLUGIN_NAME=$(basename \"$PWD\") && mkdir -p \"$PLUGIN_NAME\" && cp manifest.json main.js styles.css \"$PLUGIN_NAME\"/", // 加上这个！！！
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^16.11.6",
+		"@typescript-eslint/eslint-plugin": "5.29.0",
+		"@typescript-eslint/parser": "5.29.0",
+		"builtin-modules": "3.3.0",
+		"esbuild": "0.17.3",
+		"obsidian": "latest",
+		"tslib": "2.4.0",
+		"typescript": "4.7.4"
+	}
+}
+```
+
+然后修改 manifest.json ，示例如下：
+```json
+{
+	"id": "obsidian-andym129-daily-works-plugin",
+	"name": "Andy's Obsidian Daily Works",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "从指定目录下的笔记中 查找指定日期的内容 并进行显示",
+	"author": "Andy Meng",
+	"authorUrl": "andy_m129@163.com",
+	"fundingUrl": "https://github.com/AndyM129",
+	"isDesktopOnly": false
+}
+```
+
+再修改插件目录名为  manifest.json 中 id 的值
+
+接着打包：
+```shell
+npm run build && npm run copy
+```
+
+构建产物 会在 当前目录下 与当前目录同名的目录下：
+```shell
+obsidian-andym129-daily-works-plugin
+├─ main.js
+├─ manifest.json
+└─ styles.css
+```
+
+将该目录 复制到 插件目录、再启用插件，即可。
+
+
+

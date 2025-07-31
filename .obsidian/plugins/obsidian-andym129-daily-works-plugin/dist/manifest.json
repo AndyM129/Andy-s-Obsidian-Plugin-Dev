@@ -1,0 +1,11 @@
+{
+	"id": "obsidian-andym129-daily-works-plugin",
+	"name": "Andy's Obsidian Daily Works",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "从指定目录下的笔记中 查找指定日期的内容 并进行显示",
+	"author": "Andy Meng",
+	"authorUrl": "andy_m129@163.com",
+	"fundingUrl": "https://github.com/AndyM129",
+	"isDesktopOnly": false
+}
