@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily-works 演示.md",
+                "file": "Dev Guide.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "daily-works 演示"
+              "title": "Dev Guide"
             }
           },
           {
@@ -197,14 +197,14 @@
   },
   "active": "f27cd43d5c523959",
   "lastOpenFiles": [
+    "Works/Job/项目1.md",
+    "daily-works 演示.md",
     "Works/Job/202507311201.md",
     "Works/Job/项目3.md",
-    "daily-works 演示.md",
     "Works/Job/202507311146.md",
     "Works/Job/项目2.md",
     "2025-07-31.md",
     "Dev Guide.md",
-    "Works/Job/项目1.md",
     "Works/Job/2025-07-30.md",
     "Works/Job",
     "Works",
