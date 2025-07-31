@@ -11,7 +11,7 @@ export default class DailyWorksPlugin extends Plugin {
 	private vaultName: string;
 
 	async onload() {
-		this.vaultName = this.app.vault.getName(); // 添加一行
+		this.vaultName = this.app.vault.getName();
 		this.registerMarkdownCodeBlockProcessor(
 			"daily-works",
 			this.processDailyWorks.bind(this)
@@ -62,22 +62,38 @@ export default class DailyWorksPlugin extends Plugin {
 		let output = "";
 
 		for (const section of allSections) {
-			output += `> 📄 **${section.filePath}**\n\n`;
-
-			// 将第一行（# xxx）转成带链接的标题
 			const lines = section.text.split("\n");
 			const headingLine = lines[0];
 			const restLines = lines.slice(1).join("\n");
 
-			// 提取标题内容（去掉前缀的 "# "）
-			const headingText = headingLine.replace(/^#\s*/, "").trim();
+			// 1️⃣ 原始标题内容（含 Emoji）
+			const originalHeadingText = headingLine.replace(/^#\s*/, "").trim();
 
-			// 构建跳转链接
-			const encodedFilePath = encodeURIComponent(section.filePath);
-			const encodedHeading = encodeURIComponent(headingText);
-			const link = `obsidian://open?vault=${encodeURIComponent(this.vaultName)}&file=${encodedFilePath}&heading=${encodedHeading}`;
+			// 2️⃣ 提取时间（如 20:12:31）
+			const timeMatch = originalHeadingText.match(
+				/\d{4}-\d{2}-\d{2}\s+(\d{2}:\d{2}:\d{2})/
+			);
+			const timeStr = timeMatch ? timeMatch[1] : "??:??:??";
 
-			output += `[${headingLine}](${link})\n\n${restLines}\n\n---\n\n`;
+			// 3️⃣ 提取原标题最后部分（如 "工作1"）
+			const workTitleMatch = originalHeadingText.match(/🗒️\s*(.+)$/);
+			const workTitle = workTitleMatch
+				? workTitleMatch[1].trim()
+				: "Untitled";
+
+			// 4️⃣ 提取文件名（去除路径与后缀）
+			const fileName =
+				section.filePath.split("/").pop()?.replace(/\.md$/, "") ??
+				"Unknown";
+
+			// 5️⃣ 生成显示标题
+			const displayTitle = `🕒 ${timeStr}  🗒️ ${fileName}#${workTitle}`;
+
+			// 6️⃣ 构造链接 markdown
+			const internalLink = `[[${fileName}#${originalHeadingText}|${displayTitle}]]`;
+
+			// 7️⃣ 拼接一级标题和正文
+			output += `# ${internalLink}\n\n${restLines}\n\n---\n\n`;
 		}
 
 		// 使用 Obsidian 内部 markdown 渲染器渲染

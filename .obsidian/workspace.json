@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6b20e68bd0b6969f",
+        "id": "c1a6e64d6d8002b2",
         "type": "tabs",
         "children": [
           {
-            "id": "a8c7fda9e7c6d2d2",
+            "id": "f27cd43d5c523959",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,6 +19,20 @@
               },
               "icon": "lucide-file",
               "title": "daily-works 演示"
+            }
+          },
+          {
+            "id": "2951246763a0548a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Works/Job/项目3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "项目3"
             }
           }
         ]
@@ -127,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dev Guide.md",
+                "file": "daily-works 演示.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Dev Guide 的大纲"
+              "title": "daily-works 演示 的大纲"
             }
           },
           {
@@ -181,12 +195,14 @@
       "zk-prefixer:创建时间戳笔记": false
     }
   },
-  "active": "a8c7fda9e7c6d2d2",
+  "active": "f27cd43d5c523959",
   "lastOpenFiles": [
-    "daily-works 演示.md",
+    "Works/Job/项目3.md",
     "Works/Job/项目2.md",
-    "Works/Job/项目1.md",
+    "daily-works 演示.md",
+    "2025-07-31.md",
     "Dev Guide.md",
+    "Works/Job/项目1.md",
     "Works/Job/2025-07-30.md",
     "Works/Job",
     "Works",
