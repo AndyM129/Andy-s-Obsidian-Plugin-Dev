@@ -26,9 +26,9 @@ export default class DailyWorksPlugin extends Plugin {
 				this.refreshDailyWorksInActiveView.bind(this)
 			)
 		);
-		this.app.workspace.on("active-leaf-change", () => {
-			setTimeout(() => this.refreshDailyWorksInActiveView(), 100);
-		});
+		// this.app.workspace.on("active-leaf-change", () => {
+		// 	setTimeout(() => this.refreshDailyWorksInActiveView(), 100);
+		// });
 	}
 
 	async processDailyWorks(
@@ -231,6 +231,6 @@ export default class DailyWorksPlugin extends Plugin {
 			await mdView.previewMode?.rerender(true);
 
 			console.log("[Plugin] 强制触发 Markdown 重新渲染");
-		}, 200);
+		}, 100);
 	}
 }
