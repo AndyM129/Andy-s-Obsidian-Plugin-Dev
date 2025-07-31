@@ -5,6 +5,8 @@ import {
 	TFile,
 	MarkdownRenderer,
 	MarkdownPostProcessorContext,
+	MarkdownView,
+	Notice,
 } from "obsidian";
 
 export default class DailyWorksPlugin extends Plugin {
@@ -16,6 +18,17 @@ export default class DailyWorksPlugin extends Plugin {
 			"daily-works",
 			this.processDailyWorks.bind(this)
 		);
+
+		// 刷新逻辑注册
+		this.registerEvent(
+			this.app.workspace.on(
+				"file-open",
+				this.refreshDailyWorksInActiveView.bind(this)
+			)
+		);
+		this.app.workspace.on("active-leaf-change", () => {
+			setTimeout(() => this.refreshDailyWorksInActiveView(), 100);
+		});
 	}
 
 	async processDailyWorks(
@@ -175,5 +188,49 @@ export default class DailyWorksPlugin extends Plugin {
 		}
 
 		return sections;
+	}
+
+	getCodeBlocksInMarkdown(
+		content: string
+	): Array<{ lang: string; code: string }> {
+		const codeBlockRegex = /```([a-zA-Z0-9\-_]+)\n([\s\S]*?)\n```/g;
+		const blocks = [];
+		let match: RegExpExecArray | null;
+		while ((match = codeBlockRegex.exec(content)) !== null) {
+			blocks.push({
+				lang: match[1].trim(),
+				code: match[2].trim(),
+			});
+		}
+		return blocks;
+	}
+
+	async refreshDailyWorksInActiveView() {
+		const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
+		if (!mdView) return;
+
+		const file = mdView.file;
+		if (!file) return;
+
+		// 获取文件内容
+		const content = await this.app.vault.read(file);
+		const codeBlocks = this.getCodeBlocksInMarkdown(content);
+		const dailyWorksBlocks = codeBlocks.filter(
+			(block) => block.lang === "daily-works"
+		);
+
+		console.log(
+			`[Plugin] Found ${dailyWorksBlocks.length} daily-works blocks`
+		);
+		if (dailyWorksBlocks.length === 0) return;
+
+		// 重新触发 Obsidian 的 markdown 渲染
+		// 延后刷新以确保视图渲染完成
+		setTimeout(async () => {
+			// 通过 previewMode 触发完整重新渲染
+			await mdView.previewMode?.rerender(true);
+
+			console.log("[Plugin] 强制触发 Markdown 重新渲染");
+		}, 200);
 	}
 }
