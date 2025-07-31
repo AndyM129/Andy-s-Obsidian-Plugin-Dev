@@ -10,10 +10,8 @@ import {
 } from "obsidian";
 
 export default class DailyWorksPlugin extends Plugin {
-	private vaultName: string;
 
 	async onload() {
-		this.vaultName = this.app.vault.getName();
 		this.registerMarkdownCodeBlockProcessor(
 			"daily-works",
 			this.processDailyWorks.bind(this)
