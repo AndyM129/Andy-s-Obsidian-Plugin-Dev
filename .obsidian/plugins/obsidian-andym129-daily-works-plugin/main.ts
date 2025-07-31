@@ -66,6 +66,12 @@ export default class DailyWorksPlugin extends Plugin {
 			}
 		}
 
+		if (!allSections.length) {
+			let output = `> 未找到 \`${dir}\` 目录下 \`${targetDate}\` 的工作内容`;
+			await MarkdownRenderer.renderMarkdown(output, el, ctx.sourcePath, this);
+			return;
+		}
+
 		// 全部统一按时间升序排序
 		allSections.sort((a, b) => a.time.getTime() - b.time.getTime());
 
